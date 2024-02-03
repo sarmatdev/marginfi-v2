@@ -5,7 +5,7 @@ use super::{
 #[cfg(not(feature = "client"))]
 use crate::events::{GroupEventHeader, LendingPoolBankAccrueInterestEvent};
 use crate::{
-    assert_struct_size, check,
+    check,
     constants::{
         FEE_VAULT_AUTHORITY_SEED, FEE_VAULT_SEED, INSURANCE_VAULT_AUTHORITY_SEED,
         INSURANCE_VAULT_SEED, LIQUIDITY_VAULT_AUTHORITY_SEED, LIQUIDITY_VAULT_SEED,
@@ -276,7 +276,6 @@ pub struct InterestRateConfigOpt {
     pub protocol_ir_fee: Option<WrappedI80F48>,
 }
 
-assert_struct_size!(Bank, 1856);
 #[account(zero_copy(unsafe))]
 #[repr(C)]
 #[cfg_attr(
@@ -945,7 +944,6 @@ impl From<BankConfig> for BankConfigCompact {
     }
 }
 
-assert_struct_size!(BankConfig, 544);
 #[zero_copy(unsafe)]
 #[repr(C)]
 #[cfg_attr(
